@@ -34,11 +34,10 @@ api.recipes.add_implementor("furnace", "factory:ind_furnace")
 api.recipes.add_implementor("furnace", "factory:electronic_furnace")
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "crafting:crafting_table",
 	recipe = {
-		"ws_core:planks_dead", "ws_core:planks_dead",
-		"ws_core:planks_dead", "ws_core:planks_dead"
+		{"group:wood", "group:wood"},
+		{"group:wood", "group:wood"}
 	},
 })
 
@@ -133,9 +132,9 @@ minetest.register_node("crafting:crafting_table_progressive", {
 api.recipes.add_implementor("crafting_table_progressive", "crafting:crafting_table_progressive")
 
 local recipe = api.recipes.add("multiblock_3_3",
-	{"crafting:crafting_table", "ws_core:wood", "crafting:crafting_table",
-	"ws_core:wood", "crafting:crafting_table", "ws_core:wood",
-	"crafting:crafting_table", "ws_core:wood", "crafting:crafting_table"},
+	{"crafting:crafting_table", "group:wood", "crafting:crafting_table",
+	"group:wood", "crafting:crafting_table", "group:wood",
+	"crafting:crafting_table", "group:wood", "crafting:crafting_table"},
 	{"crafting:crafting_table_progressive"}, {h = 0, activator = "ws_core:knife_bone"})
 
 local removing = {
@@ -147,5 +146,5 @@ local removing = {
 api.make_activated_multiblock(recipe, removing)
 
 api.recipes.add("crafting_table_progressive",
-		{"ws_core:wood", "ws_core:wood", [4] = "ws_core:wood", [5] = "ws_core:wood", [10] = "crafting:crafting_table"},
+		{"group:wood", "group:wood", [4] = "group:wood", [5] = "group:wood", [10] = "crafting:crafting_table"},
 		{"crafting:crafting_table_progressive"}, {width = 2, height = 2})
